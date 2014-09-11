@@ -1,0 +1,60 @@
+h1 {
+	margin: 5px;
+	background: #009966;
+	color: white;
+	font-family: serif;
+	font-size: 24px;
+	text-align: center;
+	padding: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	position: absolute;
+	top: 50px;
+	right: 50%;
+	margin-right: -320px;
+	width: 640px;
+	height: 75px;
+	overflow: hidden;
+	opacity: 0.9;
+}
+
+.snakCanvas {
+	background: #009999;
+	color: white;
+	font-family: serif;
+	font-size: 24px;
+	text-align: center;
+	padding: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	position: absolute;
+	top: 150px;
+	right: 50%;
+	margin-right: -240px;
+	width: 480px;
+	height: 320px;
+	overflow: hidden;
+	opacity: 0.9;
+}
+
+.fmsg {
+	background: #009999;
+	color: white;
+	font-family: serif;
+	font-size: 24px;
+	text-align: center;
+	padding: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	position: absolute;
+	top: 150px;
+	right: 50%;
+	margin-right: -240px;
+	width: 480px;
+	height: 320px;
+	overflow: hidden;
+	opacity: 0.9;
+}

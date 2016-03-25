@@ -1,25 +1,3 @@
-h1 {
-	margin: 5px;
-	background: #009966;
-	color: white;
-	font-family: serif;
-	font-size: 24px;
-	text-align: center;
-	padding: 10px;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	position: absolute;
-	top: 50px;
-	right: 50%;
-	margin-right: -320px;
-	width: 640px;
-	height: 75px;
-	overflow: hidden;
-	opacity: 0.9;
-}
-
-
 .canvas {
 	background: #f09999;
 	padding: 10px;

@@ -1,5 +1,4 @@
 $ = require('jquery');
-
 const S_UP = 0;
 const S_DOWN = 1;
 const S_LEFT = 2;
@@ -47,7 +46,7 @@ drawcan = {
         drawcan.drawrect(canvas, 0, 0, S_WIDTH, S_HEIGHT, '#fff');
         for (i in bodyarr) {
             body = bodyarr[i];
-            drawcan.drawrect(canvas, body.x, body.y, S_BODYSIZE, S_BODYSIZE, '#009966');
+            drawcan.drawrect(canvas, body.x, body.y, S_BODYSIZE, S_BODYSIZE, '#f09966');
         }
 		  },
 

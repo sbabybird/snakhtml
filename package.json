@@ -1,0 +1,25 @@
+{
+  "name": "snakhtml",
+  "version": "1.0.0",
+  "description": "a snak game by HTML",
+  "main": "dist/js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbabybird/snakhtml.git"
+  },
+  "keywords": [
+    "snak",
+    "js",
+    "html5",
+    "game"
+  ],
+  "author": "sbabybird",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sbabybird/snakhtml/issues"
+  },
+  "homepage": "https://github.com/sbabybird/snakhtml#readme"
+}

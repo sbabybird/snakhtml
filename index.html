@@ -1,19 +1,18 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title>index</title>
-		<link type="text/css" href="css/hello.css" rel="stylesheet" />	
-		<script type="text/javascript" src="js/jquery-1.3.2.min.js"></script> 
-		<script type="text/javascript" src="js/jstest.js"></script>
-	</head>
-	<body>
-		<p class="fmsg">
-		<canvas id="test" width="320" height="240">
-		Fallback content, in case the browser does not support Canvas.
-		</canvas>	
-		</p>
-		<input type="BUTTON" id="show" name="show" value="show" />
-		<input type="BUTTON" id="hide" name="hide" value="hide" />
-	</body>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>snakHTML</title>
+</head>
+
+<body>
+    <div class="canvas">
+        <canvas id="snakCanvas" width="640" height="480">
+            browser does not support Canvas.
+        </canvas>
+    </div>
+    <script src='./dist/bundle.js'></script>
+</body>
+
 </html>

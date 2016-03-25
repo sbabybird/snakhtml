@@ -119,5 +119,5 @@ window.addEventListener('load', function() {
         }
     });
     init();
-    setInterval(mainwhile, 150);
+    //setInterval(mainwhile, 150);
 }, 100);

@@ -59,7 +59,6 @@ Game.prototype = {
 
     onKeyDown: function(e) {
         var key = e.keyCode || e.which || e.charCode;
-        console.log(key);
         switch (key) {
             case 87:
             case 38: this.direction = S_UP; return;

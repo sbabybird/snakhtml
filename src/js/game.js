@@ -16,12 +16,14 @@ function Game(canvas) {
     this.ctx = canvas.getContext('2d');
     this.bodys = [];
     this.direction = S_DOWN;
+    this.init();
+    this.dist = 0;
+    this.speed = 100; // 每秒100个像素
     $(this.canvas).keydown(this.onKeyDown);
     this.frames = new Frames(function() {
         this.update();
         this.render();
     }.bind(this));
-    this.init();
 }
 
 Game.prototype = {
@@ -29,7 +31,7 @@ Game.prototype = {
         for (i = 0; i < 9; i++) {
             this.bodys.push(new SnakBody(i * 16, 0, 16, '#ff0000'));
         }
-        
+
         $(document).keydown(this.onKeyDown.bind(this));
     },
 
@@ -38,8 +40,16 @@ Game.prototype = {
     },
 
     update: function() {
-        this.bodys.push(this.bodys[this.bodys.length - 1].getNewBody(this.direction));
-        this.bodys.shift();
+        var dist = this.frames.delta * this.speed;
+        if (dist > 0) {
+            this.dist += dist;
+        }
+
+        if (this.dist > 16) {
+            this.bodys.push(this.bodys[this.bodys.length - 1].getNewBody(this.direction));
+            this.bodys.shift();
+            this.dist = 0;
+        }
     },
 
     render: function() {

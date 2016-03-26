@@ -50,19 +50,7 @@ Game.prototype = {
         }
 
         if (this.dist > S_SIZE) {
-            var food = this.foods[0];
-            this.bodys.push(this.newBody());
-            if (this.isTouched(food)) {
-                this.foods.shift();
-                this.foods.push(this.newFood());
-                this.score += 1;
-                if (this.score%10 == 0) {
-                    this.speed += 100;
-                }
-            }
-            else {
-                this.bodys.shift();
-            }
+            this.moveBody();
             this.dist = 0;
         }
     },
@@ -77,7 +65,7 @@ Game.prototype = {
 
     drawBorder: function() {
         this.ctx.save();
-        this.ctx.strokeStyle = '#fff';
+        this.ctx.strokeStyle = '#eee';
         this.ctx.moveTo(0, 0);
         this.ctx.lineTo(S_WIDTH, 0);
         this.ctx.lineTo(S_WIDTH, S_HEIGHT);
@@ -98,12 +86,13 @@ Game.prototype = {
             this.foods[i].draw(this.ctx);
         }
     },
-    
-    drawScore: function() {
 
-      this.ctx.font = "30px Arial";
-      this.ctx.fillText(this.score+'', S_WIDTH-40, 40);
- 
+    drawScore: function() {
+        this.ctx.save();
+        this.ctx.fillStyle = '#eee';
+        this.ctx.font = "30px Arial";
+        this.ctx.fillText(this.score + '', S_WIDTH - 40, 40);
+        this.ctx.restore();
     },
 
     newFood: function() {
@@ -154,6 +143,22 @@ Game.prototype = {
         return false;
     },
 
+    moveBody: function() {
+        var food = this.foods[0];
+        this.bodys.push(this.newBody());
+        if (this.isTouched(food)) {
+            this.foods.shift();
+            this.foods.push(this.newFood());
+            this.score += 1;
+            if (this.score % 10 == 0) {
+                this.speed += 100;
+            }
+        }
+        else {
+            this.bodys.shift();
+        }
+    },
+
     play: function() {
         this.frames.play();
     },
@@ -170,6 +175,7 @@ Game.prototype = {
                 if (this.direction != S_DOWN) {
                     this.direction = S_UP;
                 }
+                this.moveBody();
                 break;
 
             case 83: // S
@@ -177,6 +183,7 @@ Game.prototype = {
                 if (this.direction != S_UP) {
                     this.direction = S_DOWN;
                 }
+                this.moveBody();
                 break;
 
             case 65: // A
@@ -184,6 +191,7 @@ Game.prototype = {
                 if (this.direction != S_RIGHT) {
                     this.direction = S_LEFT;
                 }
+                this.moveBody();
                 break;
 
             case 68: // D
@@ -191,6 +199,7 @@ Game.prototype = {
                 if (this.direction != S_LEFT) {
                     this.direction = S_RIGHT;
                 }
+                this.moveBody();
                 break;
 
             default: break;

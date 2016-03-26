@@ -10,7 +10,7 @@ SnakBody.prototype = {
         if (ctx) {
             ctx.save();
             ctx.fillStyle = this.color;
-            ctx.fillRect(this.x, this.y, this.size, this.size);
+            ctx.fillRect(this.x+1, this.y+1, this.size-1, this.size-1);
             ctx.restore();
         }
     },

@@ -1,6 +1,8 @@
 function Frames(callback) {
     this.callback = callback;
     this.then = Date.now();
+    this.delta = 0;
+    this.isRunning = false;
 }
 
 Frames.prototype = {

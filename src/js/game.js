@@ -7,8 +7,8 @@ const S_UP = 0;
 const S_DOWN = 1;
 const S_LEFT = 2;
 const S_RIGHT = 3;
-const S_WIDTH = 640;
-const S_HEIGHT = 480;
+const S_WIDTH = 480;
+const S_HEIGHT = 320;
 const S_SIZE = 16;
 
 
@@ -145,7 +145,13 @@ Game.prototype = {
 
     moveBody: function() {
         var food = this.foods[0];
-        this.bodys.push(this.newBody());
+        var body = this.newBody();
+        if (this.isTouched(body)) {
+            this.gameOver();
+        }
+        else {
+            this.bodys.push(this.newBody());
+        }
         if (this.isTouched(food)) {
             this.foods.shift();
             this.foods.push(this.newFood());
@@ -165,6 +171,16 @@ Game.prototype = {
 
     pause: function() {
         this.frames.pause();
+    },
+    
+    gameOver: function() {
+        this.frames.pause();
+        this.ctx.save();
+        this.ctx.fillStyle = '#fff';
+        this.ctx.font = "50px Arial";
+        this.ctx.textAlign = "center";
+        this.ctx.fillText('Game Over !', S_WIDTH/2, S_HEIGHT/2);
+        this.ctx.restore();
     },
 
     onKeyDown: function(e) {

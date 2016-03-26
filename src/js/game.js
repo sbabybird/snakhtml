@@ -20,6 +20,7 @@ function Game(canvas) {
     this.direction = S_DOWN;
     this.init();
     this.dist = 0;
+    this.score = 0;
     this.speed = 100; // move 100 pixels per second
     this.frames = new Frames(function() {
         this.update();
@@ -51,12 +52,16 @@ Game.prototype = {
         if (this.dist > S_SIZE) {
             var food = this.foods[0];
             this.bodys.push(this.newBody());
-            if (!this.isTouched(food)) {
-                this.bodys.shift();
-            }
-            else {
+            if (this.isTouched(food)) {
                 this.foods.shift();
                 this.foods.push(this.newFood());
+                this.score += 1;
+                if (this.score%10 == 0) {
+                    this.speed += 100;
+                }
+            }
+            else {
+                this.bodys.shift();
             }
             this.dist = 0;
         }
@@ -67,6 +72,7 @@ Game.prototype = {
         this.drawBorder();
         this.drawBody();
         this.drawFood();
+        this.drawScore();
     },
 
     drawBorder: function() {
@@ -91,6 +97,13 @@ Game.prototype = {
         for (var i = 0; i < this.foods.length; i++) {
             this.foods[i].draw(this.ctx);
         }
+    },
+    
+    drawScore: function() {
+
+      this.ctx.font = "30px Arial";
+      this.ctx.fillText(this.score+'', S_WIDTH-40, 40);
+ 
     },
 
     newFood: function() {

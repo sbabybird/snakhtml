@@ -1,6 +1,9 @@
-require('./css/style.css')
-
+require('./css/style.css');
 var $ = require('jquery');
+//require('expose?$!expose?jQuery!jquery');
+require('bootstrap-webpack');
+
+
 
 $(function() {
     var Game = require('./js/game.js');
